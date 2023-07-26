@@ -13,9 +13,9 @@ const Landing = () => {
         </div> */}
         {/* <img src={r4} className=" h-[600px] w-full object-cover" /> */}
         <div className="w-full">
-          <Carousel>
+          <Carousel autoSlide={false}>
             {slides.map((r) => (
-              <img src={r} className=" h-[600px] w-[30%] object-cover" />
+              <img src={r} className=" h-[600px] min-w-full  object-cover" />
             ))}
           </Carousel>
         </div>
