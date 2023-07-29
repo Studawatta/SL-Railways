@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Navbar = () => {
   const [currentPage, setCurrentPage] = useState("home");
   return (
-    <div className=" flex h-14 w-full items-center justify-between bg-[#f2f2f2] px-20 text-[12px] text-slate-500 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ">
+    <div className=" fixed z-50 flex h-14 w-full items-center justify-between bg-[#f2f2f2] px-20 text-[12px] text-slate-500 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ">
       {/* NAV LEFT  */}
       <span>Sri Lanka Railways</span>
       {/* NAV RIGHT */}

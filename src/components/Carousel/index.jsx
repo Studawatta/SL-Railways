@@ -31,6 +31,7 @@ const Carousel = ({
         <div className="mb-32 flex items-center justify-center gap-2 ">
           {slides.map((_, i) => (
             <div
+              key={i}
               className={`h-3 w-3 rounded-full bg-white transition-all ${
                 curr === i ? "p-2" : "bg-opacity-50"
               }`}
