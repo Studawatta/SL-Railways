@@ -20,7 +20,7 @@ const BookingForm = () => {
       </div>
       <div className="flex flex-[3] items-center justify-center bg-white">
         <div className="h-[90%] w-[95%] ">
-          <div className="grid h-[70%] w-full grid-cols-3 px-4">
+          <div className="grid h-[70%] w-full grid-cols-3 gap-1 px-4">
             <div className={input_Container_Style}>
               <label>From</label>
 
@@ -54,7 +54,7 @@ const BookingForm = () => {
                 <div
                   className={`h-5 w-5 rounded-full bg-white ${
                     showReturn
-                      ? " translate-x-4 duration-500"
+                      ? " translate-x-5 duration-500"
                       : "translate-x-0 duration-500"
                   }`}
                 ></div>
