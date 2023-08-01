@@ -1,32 +1,37 @@
 import React, { useEffect, useRef, useState } from "react";
 import DropDownStationList from "../DropDownStationList";
+import useMediaQuary from "../../hooks/useMediaQuary";
 
 const BookingForm = () => {
+  const isAboveMediumScreens = useMediaQuary("(min-width:1060px)");
+  console.log(isAboveMediumScreens);
   const [showReturn, setShowReturn] = useState(false);
-  const input_Container_Style = "flex h-fit w-fit flex-col bg-white";
+  const input_Container_Style = "flex h-fit  flex-col bg-white";
   const input_Style =
-    "mt-1 rounded-md border-2 border-slate-500 px-2 py-1 w-[200px]";
+    "mt-1 rounded-md border-2 border-slate-500 px-2 py-1 w-[100%]";
 
   return (
     <div
       id="booking-form"
       className=" absolute left-0 right-0 top-[90%] mx-auto flex h-[200px] w-[70%] shadow-xl"
     >
+      {/* BOOKING FORM LEFT */}
       <div className="flex-[1] bg-blue-400">
         <p className="ml-8 text-[32px] font-thin text-white">Book Your Seat </p>
         <span className="ml-8 text-[16px] text-white">
           You can book both ways
         </span>
       </div>
-      <div className="flex flex-[3] items-center justify-center bg-white">
-        <div className="h-[90%] w-[95%] ">
-          <div className="grid h-[70%] w-full grid-cols-3 gap-1 px-4">
+
+      {/* BOOKING FORM RIGHT */}
+      <div className="flex flex-[3] items-center justify-center bg-green-500">
+        <div className="h-[90%] w-[90%] bg-red-300 ">
+          {/* FORM CONTIANER */}
+          <div className="flex justify-between">
             <div className={input_Container_Style}>
               <label>From</label>
-
               <DropDownStationList />
             </div>
-
             <div className={input_Container_Style}>
               <label>To</label>
               <DropDownStationList />
@@ -35,6 +40,9 @@ const BookingForm = () => {
               <label>Date</label>
               <input className={input_Style} type="date" placeholder="Date" />
             </div>
+          </div>
+
+          <div className="flex">
             <div className={input_Container_Style}>
               <input
                 className={input_Style}
@@ -75,6 +83,8 @@ const BookingForm = () => {
               ""
             )}
           </div>
+
+          {/* BUTTON CONTAINER */}
           <div className="ml-auto flex h-[30%] w-fit items-center gap-2 ">
             <button className="h-fit rounded-lg border-2 border-slate-400 px-3 py-2 hover:bg-blue-400">
               Search
