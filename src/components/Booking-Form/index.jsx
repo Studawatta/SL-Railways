@@ -4,45 +4,55 @@ import useMediaQuary from "../../hooks/useMediaQuary";
 
 const BookingForm = () => {
   const isAboveMediumScreens = useMediaQuary("(min-width:1060px)");
-  console.log(isAboveMediumScreens);
+
   const [showReturn, setShowReturn] = useState(false);
-  const input_Container_Style = "flex h-fit  flex-col bg-white";
+  const input_Container_Style = "flex h-fit flex-col bg-white";
   const input_Style =
     "mt-1 rounded-md border-2 border-slate-500 px-2 py-1 w-[100%]";
 
   return (
     <div
       id="booking-form"
-      className=" absolute left-0 right-0 top-[90%] mx-auto flex h-[200px] w-[70%] shadow-xl"
+      className={`absolute left-0 right-0  mx-auto h-fit w-[70%] bg-white shadow-xl ${
+        isAboveMediumScreens ? "top-[90%] flex" : " top-[236%]"
+      }`}
     >
       {/* BOOKING FORM LEFT */}
       <div className="flex-[1] bg-blue-400">
-        <p className="ml-8 text-[32px] font-thin text-white">Book Your Seat </p>
-        <span className="ml-8 text-[16px] text-white">
+        <p className="ml-[7%] text-[32px] font-thin text-white">
+          Book Your Seat{" "}
+        </p>
+        <p className="ml-[7%]  text-[16px] text-white">
           You can book both ways
-        </span>
+        </p>
       </div>
 
       {/* BOOKING FORM RIGHT */}
-      <div className="flex flex-[3] items-center justify-center bg-green-500">
-        <div className="h-[90%] w-[90%] bg-red-300 ">
+      <div className="flex flex-[3] items-center justify-center   py-4 ">
+        <div className="flex  w-[90%] flex-col gap-4">
           {/* FORM CONTIANER */}
-          <div className="flex justify-between">
+
+          <div
+            className={` w-full   ${
+              isAboveMediumScreens
+                ? "grid grid-cols-3  gap-x-8 gap-y-4"
+                : "flex flex-col gap-2"
+            }`}
+          >
             <div className={input_Container_Style}>
               <label>From</label>
               <DropDownStationList />
             </div>
+
             <div className={input_Container_Style}>
               <label>To</label>
               <DropDownStationList />
             </div>
+
             <div className={input_Container_Style}>
               <label>Date</label>
               <input className={input_Style} type="date" placeholder="Date" />
             </div>
-          </div>
-
-          <div className="flex">
             <div className={input_Container_Style}>
               <input
                 className={input_Style}
@@ -70,7 +80,7 @@ const BookingForm = () => {
               <span className="text-[18px] text-slate-400">Return</span>
             </div>
             {showReturn ? (
-              <div>
+              <div className={input_Container_Style}>
                 <input
                   className={input_Style}
                   placeholder="Date"
@@ -83,9 +93,8 @@ const BookingForm = () => {
               ""
             )}
           </div>
-
           {/* BUTTON CONTAINER */}
-          <div className="ml-auto flex h-[30%] w-fit items-center gap-2 ">
+          <div className="ml-auto flex h-[30%] w-fit items-center gap-2  ">
             <button className="h-fit rounded-lg border-2 border-slate-400 px-3 py-2 hover:bg-blue-400">
               Search
             </button>

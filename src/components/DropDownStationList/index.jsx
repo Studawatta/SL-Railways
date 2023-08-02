@@ -21,6 +21,7 @@ const DropDownStationList = () => {
     "Jaffna",
     "Kandy",
   ];
+
   const dropDownRef = useRef();
   const useOutSideClick = (ref) => {
     useEffect(() => {
@@ -30,21 +31,23 @@ const DropDownStationList = () => {
         }
       };
       document.addEventListener("mousedown", handleClickOutSide);
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutSide);
-      };
+      // return () => {
+      //   document.removeEventListener("mousedown", handleClickOutSide);
+      // };
     }, [ref]);
   };
+
   useOutSideClick(dropDownRef);
+
   return (
-    <div ref={dropDownRef}>
+    <div ref={dropDownRef} className="relative w-full">
       <input
-        className="mt-1 rounded-md border-2 border-slate-500 px-2 py-1"
+        className="mt-1 w-full rounded-md border-2 border-slate-500 px-2 py-1"
         placeholder="Choose station"
         onFocus={() => setShowDropDown(true)}
       />
       {showDropDown ? (
-        <div className=" absolute mt-1 flex h-56 w-[200px] flex-col gap-2 overflow-auto rounded-md border-2 border-slate-400 bg-white p-1">
+        <div className=" absolute mt-1 flex h-56 w-full flex-col gap-2 overflow-auto rounded-md border-2 border-slate-400 bg-white p-1">
           {stations.map((station, index) => (
             <span
               key={index}

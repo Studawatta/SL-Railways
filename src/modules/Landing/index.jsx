@@ -2,11 +2,17 @@ import React from "react";
 import { r1, r2, r3, r4 } from "../../assets";
 import { BookingForm, Carousel } from "../../components";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import useMediaQuary from "../../hooks/useMediaQuary";
 const Landing = () => {
+  const isAboveMediumScreens = useMediaQuary("(min-width:1060px)");
   const slides = [r1, r2, r3, r4];
   return (
     <div>
-      <div className="relative top-[56px] h-[780px] w-full ">
+      <div
+        className={`relative top-[56px]  w-full ${
+          isAboveMediumScreens ? "h-[780px]" : "h-[300px]"
+        } `}
+      >
         <div className=" w-full">
           <Carousel autoSlide={true}>
             {slides.map((r) => (
@@ -18,7 +24,11 @@ const Landing = () => {
             ))}
           </Carousel>
         </div>
-        <div className="absolute top-[244px] ml-20 flex h-[180px] flex-col justify-center ">
+        <div
+          className={`absolute top-[244px]  flex h-[180px] w-fit flex-col justify-center  ${
+            isAboveMediumScreens ? "ml-20" : "ml-2"
+          }`}
+        >
           <h1 className="text-[40px] font-semibold text-white drop-shadow-[0_8px_2px_black]">
             Welcome to Sri Lanka Railways
           </h1>
