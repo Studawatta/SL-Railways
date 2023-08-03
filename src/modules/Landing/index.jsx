@@ -7,7 +7,7 @@ const Landing = () => {
   const isAboveMediumScreens = useMediaQuary("(min-width:1060px)");
   const slides = [r1, r2, r3, r4];
   return (
-    <div>
+    <div className="h-fit bg-black">
       <div
         className={`relative top-[56px]  w-full ${
           isAboveMediumScreens ? "h-[780px]" : "h-[300px]"
@@ -44,7 +44,6 @@ const Landing = () => {
         </div>
         <BookingForm />
       </div>
-      <div className="h-[400px] w-full"></div>
     </div>
   );
 };

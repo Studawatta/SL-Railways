@@ -34,23 +34,44 @@ const BookingForm = () => {
 
   const dropDownRefFrom = useRef();
   const dropDownRefTo = useRef();
-  const useOutSideClick = (ref) => {
-    useEffect(() => {
-      const handleClickOutSide = (e) => {
-        if (ref.current && !ref.current.contains(e.target)) {
-          setShowDropDownFrom(false);
-          setShowDropDownTo(false);
-        }
-      };
-      document.addEventListener("mousedown", handleClickOutSide);
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutSide);
-      };
-    }, [ref]);
-  };
+  // const useOutSideClick = (ref) => {
+  //   useEffect(() => {
+  //     const handleClickOutSide = (e) => {
+  //       if (
+  //         ref.current &&
+  //         ref.current.contains(e.target) &&
+  //         showDropDownFrom
+  //       ) {
+  //         setShowDropDownFrom(false);
+  //         // setShowDropDownTo(false);
+  //       }
+  //     };
+  //     document.addEventListener("mousedown", handleClickOutSide);
+  //     return () => {
+  //       document.removeEventListener("mousedown", handleClickOutSide);
+  //     };
+  //   }, [ref]);
+  // };
 
-  useOutSideClick(dropDownRefFrom);
-  useOutSideClick(dropDownRefTo);
+  useEffect(() => {
+    const handleClickOutSide = (e) => {
+      if (
+        dropDownRefFrom.current &&
+        !dropDownRefFrom.current.contains(e.target) &&
+        showDropDownFrom
+      ) {
+        setShowDropDownFrom(false);
+        // setShowDropDownTo(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutSide);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutSide);
+    };
+  }, []);
+
+  // useOutSideClick(dropDownRefFrom);
+  // useOutSideClick(dropDownRefTo);
 
   return (
     <div
