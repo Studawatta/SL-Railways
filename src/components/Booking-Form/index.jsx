@@ -4,11 +4,53 @@ import useMediaQuary from "../../hooks/useMediaQuary";
 
 const BookingForm = () => {
   const isAboveMediumScreens = useMediaQuary("(min-width:1060px)");
+  const [showDropDownFrom, setShowDropDownFrom] = useState(false);
+  const [showDropDownTo, setShowDropDownTo] = useState(false);
 
   const [showReturn, setShowReturn] = useState(false);
   const input_Container_Style = "flex h-fit flex-col bg-white";
   const input_Style =
     "mt-1 rounded-md border-2 border-slate-500 px-2 py-1 w-[100%]";
+
+  const stations = [
+    "Ahangama",
+    "Aluthgama",
+    "Ambalangoda",
+    "Badulla",
+    "Beliatta",
+    "Bentota",
+    "Colombo Fort",
+    "Demodara-Ella",
+    "Ella",
+    "Eraur",
+    "Galle",
+    "Gampaha",
+    "Habarana",
+    "Hatton",
+    "Hikkaduwa",
+    "Jaffna",
+    "Kandy",
+  ];
+
+  const dropDownRefFrom = useRef();
+  const dropDownRefTo = useRef();
+  const useOutSideClick = (ref) => {
+    useEffect(() => {
+      const handleClickOutSide = (e) => {
+        if (ref.current && !ref.current.contains(e.target)) {
+          setShowDropDownFrom(false);
+          setShowDropDownTo(false);
+        }
+      };
+      document.addEventListener("mousedown", handleClickOutSide);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutSide);
+      };
+    }, [ref]);
+  };
+
+  useOutSideClick(dropDownRefFrom);
+  useOutSideClick(dropDownRefTo);
 
   return (
     <div
@@ -18,6 +60,7 @@ const BookingForm = () => {
       }`}
     >
       {/* BOOKING FORM LEFT */}
+
       <div className="flex-[1] bg-blue-400">
         <p className="ml-[7%] text-[32px] font-thin text-white">
           Book Your Seat{" "}
@@ -28,6 +71,7 @@ const BookingForm = () => {
       </div>
 
       {/* BOOKING FORM RIGHT */}
+
       <div className="flex flex-[3] items-center justify-center   py-4 ">
         <div className="flex  w-[90%] flex-col gap-4">
           {/* FORM CONTIANER */}
@@ -39,20 +83,65 @@ const BookingForm = () => {
                 : "flex flex-col gap-2"
             }`}
           >
-            <div className={input_Container_Style}>
+            {/* FROM INPUT */}
+
+            <div ref={dropDownRefFrom} className="relative w-full">
               <label>From</label>
-              <DropDownStationList />
+              <input
+                className="mt-1 w-full rounded-md border-2 border-slate-500 px-2 py-1"
+                placeholder="Choose station"
+                onFocus={() => setShowDropDownFrom(true)}
+              />
+              {showDropDownFrom ? (
+                <div className=" absolute mt-1 flex h-56 w-full flex-col gap-2 overflow-auto rounded-md border-2 border-slate-400 bg-white p-1">
+                  {stations.map((station, index) => (
+                    <span
+                      key={index}
+                      className=" cursor-pointer pl-4 hover:bg-slate-200"
+                    >
+                      {station}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
 
-            <div className={input_Container_Style}>
+            {/* TO INPUT */}
+
+            <div ref={dropDownRefTo} className="relative w-full">
               <label>To</label>
-              <DropDownStationList />
+              <input
+                className="mt-1 w-full rounded-md border-2 border-slate-500 px-2 py-1"
+                placeholder="Choose station"
+                onFocus={() => setShowDropDownTo(true)}
+              />
+              {showDropDownTo ? (
+                <div className=" absolute mt-1 flex h-56 w-full flex-col gap-2 overflow-auto rounded-md border-2 border-slate-400 bg-white p-1">
+                  {stations.map((station, index) => (
+                    <span
+                      key={index}
+                      className=" cursor-pointer pl-4 hover:bg-slate-200"
+                    >
+                      {station}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
+
+            {/* DATE INPUT */}
 
             <div className={input_Container_Style}>
               <label>Date</label>
               <input className={input_Style} type="date" placeholder="Date" />
             </div>
+
+            {/* PASSENGERS COUNT INPUT */}
+
             <div className={input_Container_Style}>
               <input
                 className={input_Style}
@@ -62,6 +151,9 @@ const BookingForm = () => {
                 max="5"
               />
             </div>
+
+            {/* SHOW RETURN BUTTON AND RETURN DATE INPUT */}
+
             <div className="flex items-center gap-8">
               <div
                 className={`${
@@ -93,7 +185,9 @@ const BookingForm = () => {
               ""
             )}
           </div>
+
           {/* BUTTON CONTAINER */}
+
           <div className="ml-auto flex h-[30%] w-fit items-center gap-2  ">
             <button className="h-fit rounded-lg border-2 border-slate-400 px-3 py-2 hover:bg-blue-400">
               Search
