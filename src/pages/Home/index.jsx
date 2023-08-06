@@ -1,13 +1,18 @@
+import { useState } from "react";
 import { Footer, Navbar } from "../../components";
-import { Gallery, Landing } from "../../modules";
+import { Gallery, ImageSlider, Landing } from "../../modules";
 
 const Home = () => {
+  const [showImageSlider, setShowImageSlider] = useState(false);
   return (
-    <div>
-      <Navbar />
-      <Landing />
-      <Gallery />
-    </div>
+    <>
+      <div className={`${showImageSlider ? "bg-black/10" : ""}`}>
+        <Navbar />
+        <Landing />
+        <Gallery show={setShowImageSlider} />
+      </div>
+      {showImageSlider ? <ImageSlider show={setShowImageSlider} /> : ""}
+    </>
   );
 };
 

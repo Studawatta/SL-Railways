@@ -76,8 +76,8 @@ const BookingForm = () => {
   return (
     <div
       id="booking-form"
-      className={`absolute left-0 right-0  mx-auto h-fit w-[70%] bg-white shadow-xl ${
-        isAboveMediumScreens ? "top-[90%] flex" : " top-[236%]"
+      className={`absolute left-0 right-0  mx-auto h-fit w-[70%]  pt-40 shadow-xl ${
+        isAboveMediumScreens ? "top-[70%] flex" : " top-[236%]"
       }`}
     >
       {/* BOOKING FORM LEFT */}
@@ -93,7 +93,7 @@ const BookingForm = () => {
 
       {/* BOOKING FORM RIGHT */}
 
-      <div className="flex flex-[3] items-center justify-center   py-4 ">
+      <div className="flex flex-[3] items-center justify-center bg-white  py-4 ">
         <div className="flex  w-[90%] flex-col gap-4">
           {/* FORM CONTIANER */}
 
