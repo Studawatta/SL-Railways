@@ -56,12 +56,14 @@ const Footer = () => {
           </div>
         </div>
         {/* BOTTOM */}
-        <div className=" mt-6 flex flex-col justify-between gap-2  font-bold md:mt-12 md:w-[80%] md:flex-row md:gap-0">
+        <div className=" mt-6 grid w-full grid-cols-2 gap-y-4 font-bold lg:grid-cols-5 ">
           <span className=" cursor-pointer">FAQ</span>
           <span className=" cursor-pointer">About us</span>
           <span className=" cursor-pointer">Privacy Policy</span>
           <span className=" cursor-pointer">Train timetable</span>
-          <span className=" cursor-pointer">Ticket printing locations</span>
+          <span className=" col-span-2 cursor-pointer lg:col-span-1">
+            Ticket printing locations
+          </span>
         </div>
       </div>
     </div>

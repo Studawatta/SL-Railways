@@ -35,7 +35,7 @@ const Gallery = () => {
                 X
               </span>
             </div>
-            <div className="m-auto flex h-[75%] w-[70%]  items-center">
+            <div className="m-auto mt-16 flex items-center sm:mt-0 sm:h-[75%]  sm:w-[70%]">
               <AiOutlineLeft
                 className="cursor-pointer rounded-full bg-slate-500 p-2 text-[56px] text-slate-300"
                 onClick={() => {
