@@ -1,7 +1,7 @@
 import React from "react";
 import {
   EmblemSL,
-  Sri_lanka_Railway_logo,
+  slr_logo,
   apple_en,
   google_en,
   mobitel_logo,
@@ -42,7 +42,7 @@ const Footer = () => {
                   className="mx-4 h-12  w-12"
                 />
                 <img
-                  src={Sri_lanka_Railway_logo}
+                  src={slr_logo}
                   alt="Sri_lanka_Railway_logo"
                   className="h-12 w-12"
                 />
