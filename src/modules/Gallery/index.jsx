@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { r1, r2, r3, r4, r5, r6 } from "../../assets";
-import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
-const Gallery = (props) => {
+const Gallery = () => {
   const [viewImage, setViewImage] = useState(false);
   const [curr, setCurr] = useState(0);
 

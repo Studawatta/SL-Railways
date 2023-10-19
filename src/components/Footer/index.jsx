@@ -1,10 +1,10 @@
 import React from "react";
 import {
-  mobitel_logo,
   EmblemSL,
   Sri_lanka_Railway_logo,
   apple_en,
   google_en,
+  mobitel_logo,
 } from "../../assets";
 const Footer = () => {
   return (
@@ -28,13 +28,13 @@ const Footer = () => {
           {/* TOP_RIGHT */}
           <div>
             {/* TOP_RIGHT_TOP */}
-            <div className="flex flex-col gap-4 md:flex-row md:gap-2">
+            <div className="flex flex-col gap-4">
               <span>Technology partner</span>
               <div className="flex justify-between">
                 <img
                   src={mobitel_logo}
                   alt="mobitel_logo"
-                  className="mx-2 h-12 w-28"
+                  className=" h-12 w-28"
                 />
                 <img
                   src={EmblemSL}

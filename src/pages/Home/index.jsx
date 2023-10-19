@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Footer, Navbar } from "../../components";
 import { Contact, Gallery, History, Landing, OurServices } from "../../modules";
 
