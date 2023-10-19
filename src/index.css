@@ -2,3 +2,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes next01 {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+@keyframes next02 {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}

@@ -1,28 +1,15 @@
 import React from "react";
-import { r1, r2, r3, r4 } from "../../assets";
-import { BookingForm, Carousel } from "../../components";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { BookingForm, Carousel } from "../../components";
 import useMediaQuary from "../../hooks/useMediaQuary";
 const Landing = () => {
   const isAboveMediumScreens = useMediaQuary("(min-width:1060px)");
-  const slides = [r1, r2, r3, r4];
+
   return (
-    <div className="h-fit bg-black">
-      <div
-        className={`relative top-[56px]  w-full ${
-          isAboveMediumScreens ? "h-[780px]" : "h-[300px]"
-        } `}
-      >
+    <div id="home">
+      <div className={` relative  w-full  `}>
         <div className=" w-full">
-          <Carousel autoSlide={true}>
-            {slides.map((r) => (
-              <img
-                key={r}
-                src={r}
-                className=" h-[780px] min-w-full  object-cover"
-              />
-            ))}
-          </Carousel>
+          <Carousel />
         </div>
         <div
           className={`absolute top-[244px]  flex h-[180px] w-fit flex-col justify-center  ${

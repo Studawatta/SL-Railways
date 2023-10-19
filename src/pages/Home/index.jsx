@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { Footer, Navbar } from "../../components";
-import { Gallery, ImageSlider, Landing } from "../../modules";
+import { Contact, Gallery, History, Landing, OurServices } from "../../modules";
 
 const Home = () => {
-  const [showImageSlider, setShowImageSlider] = useState(false);
   return (
     <>
-      <div className={`${showImageSlider ? "bg-black/10" : ""}`}>
-        <Navbar />
+      <Navbar />
+      <div className="relative  w-full">
         <Landing />
-        <Gallery show={setShowImageSlider} />
+        <Gallery />
+        <History />
+        <OurServices />
+        <Contact />
+        <Footer />
       </div>
-      {showImageSlider ? <ImageSlider show={setShowImageSlider} /> : ""}
     </>
   );
 };
 
 export default Home;
-dfweg;
